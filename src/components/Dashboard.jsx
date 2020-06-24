@@ -4,7 +4,9 @@ import Cases from "./Cases";
 import TimeSeries from "./TimeSeries";
 import Statewise from "./Statewise";
 import Tested from "./Tested";
+import SpreadTrend from "./SpreadTrend";
 import "./Dashboard.scss";
+import { Button } from "@material-ui/core";
 const service = require("../services/service");
 
 export class Dashboard extends Component {
@@ -19,6 +21,7 @@ export class Dashboard extends Component {
         statewise: [],
         tested: [],
       },
+      showGraph: "all",
     };
   }
 
@@ -55,6 +58,22 @@ export class Dashboard extends Component {
     });
   };
 
+  clicked = (value) => {
+    if (value === 1) {
+      this.setState({
+        showGraph: "all",
+      });
+    } else if (value === 2) {
+      this.setState({
+        showGraph: "month",
+      });
+    } else {
+      this.setState({
+        showGraph: "2weeks",
+      });
+    }
+  };
+
   UNSAFE_componentWillMount() {
     this.getData();
     this.getTotalTestDone();
@@ -72,14 +91,32 @@ export class Dashboard extends Component {
             tested={this.state.totalTested}
             recovered={this.state.totalRecovered}
           />
+          <SpreadTrend showGraph={this.state.showGraph} />
+          <div>
+            <Button variant="contained" onClick={() => this.clicked(1)}>
+              All
+            </Button>
+            <Button variant="contained" onClick={() => this.clicked(2)}>
+              1 Month
+            </Button>
+            <Button variant="contained" onClick={() => this.clicked(3)}>
+              2 Weeks
+            </Button>
+          </div>
           <div className="series">
-            <TimeSeries data={this.state.data} />
+            <TimeSeries
+              data={this.state.data}
+              showGraph={this.state.showGraph}
+            />
           </div>
           <div className="series">
             <Statewise data={this.state.data.statewise} />
           </div>
           <div className="series">
-            <Tested tested={this.state.data.tested} />
+            <Tested
+              tested={this.state.data.tested}
+              showGraph={this.state.showGraph}
+            />
           </div>
         </div>
       </div>

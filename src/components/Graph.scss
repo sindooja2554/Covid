@@ -2,3 +2,35 @@
   width: 100%;
   height: inherit;
 }
+
+.expansion {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.expansion_panel {
+  width: 30%;
+}
+
+.list {
+  height: 300px;
+  overflow-y: auto;
+}
+
+.listButton {
+  width: 100% !important;
+}
+
+.bars {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.bar {
+  width: 450px;
+  height: 250px;
+}

@@ -21,3 +21,14 @@ export function getTotalTestDone(callback) {
       return callback(error);
     });
 }
+
+export function getStateDistData(callback) {
+  axios
+    .get("https://api.covid19india.org/state_district_wise.json")
+    .then((data) => {
+      return callback(null, data);
+    })
+    .catch((error) => {
+      return callback(error);
+    });
+}
