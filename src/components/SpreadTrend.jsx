@@ -22,8 +22,11 @@ export class SpreadTrend extends Component {
         datasets: [
           {
             label: "Active",
+            fill: true,
+            backgroundColor: "#80B6F4",
+            borderColor: "#80B6F4",
+            border: 1,
             data: [],
-            backgroundColor: "#80C342",
           },
         ],
       },
@@ -32,6 +35,8 @@ export class SpreadTrend extends Component {
         datasets: [
           {
             label: "Confirmed",
+            backgroundColor: "rgba(255, 0, 0, 1)",
+            borderColor: "rgba(255, 0, 0, 1)",
             data: [],
           },
         ],
@@ -207,34 +212,130 @@ export class SpreadTrend extends Component {
         </div>
         <div className="bars">
           {this.state.dist_active_data.labels.length !== 0 && (
-            <div className="bar">
+            <div className="bar_active">
               <Bar
                 data={this.state.dist_active_data}
-                options={{ maintainAspectRatio: false }}
+                options={{
+                  maintainAspectRatio: false,
+                  legend: {
+                    display: true,
+                    position: "top",
+                    align: "center",
+                    labels: {
+                      fontColor: "blue",
+                    },
+                  },
+                  scales: {
+                    yAxes: [
+                      {
+                        ticks: {
+                          fontColor: "blue",
+                        },
+                        gridLines: {
+                          zeroLineColor: "blue",
+                        },
+                      },
+                    ],
+                    xAxes: [
+                      {
+                        ticks: {
+                          fontColor: "blue",
+                        },
+                        gridLines: {
+                          zeroLineColor: "blue",
+                        },
+                      },
+                    ],
+                  },
+                }}
                 redraw={true}
               />
             </div>
           )}
           {this.state.dist_confirmed_data.labels.length !== 0 && (
-            <div className="bar">
+            <div className="bar_confirmed">
               <Bar
                 data={this.state.dist_confirmed_data}
-                options={{ maintainAspectRatio: false }}
+                options={{
+                  maintainAspectRatio: false,
+                  legend: {
+                    display: true,
+                    position: "top",
+                    align: "center",
+                    labels: {
+                      fontColor: "red",
+                    },
+                  },
+                  scales: {
+                    yAxes: [
+                      {
+                        ticks: {
+                          fontColor: "red",
+                        },
+                        gridLines: {
+                          zeroLineColor: "red",
+                        },
+                      },
+                    ],
+                    xAxes: [
+                      {
+                        ticks: {
+                          fontColor: "red",
+                        },
+                        gridLines: {
+                          zeroLineColor: "red",
+                        },
+                      },
+                    ],
+                  },
+                }}
                 redraw={true}
               />
             </div>
           )}
           {this.state.dist_recovered_data.labels.length !== 0 && (
-            <div className="bar">
+            <div className="bar_recovered">
               <Bar
                 data={this.state.dist_recovered_data}
-                options={{ maintainAspectRatio: false }}
+                options={{
+                  maintainAspectRatio: false,
+                  legend: {
+                    display: true,
+                    position: "top",
+                    align: "center",
+                    labels: {
+                      fontColor: "green",
+                    },
+                  },
+                  scales: {
+                    yAxes: [
+                      {
+                        ticks: {
+                          fontColor: "green",
+                        },
+                        gridLines: {
+                          zeroLineColor: "green",
+                        },
+                      },
+                    ],
+                    xAxes: [
+                      {
+                        ticks: {
+                          fontColor: "green",
+                        },
+                        gridLines: {
+                          zeroLineColor: "green",
+                        },
+                      },
+                    ],
+                  },
+                }}
                 redraw={true}
               />
             </div>
           )}
           {this.state.dist_deceased_data.labels.length !== 0 && (
-            <div className="bar">
+            <div className="bar_deceased">
               <Bar
                 data={this.state.dist_deceased_data}
                 options={{ maintainAspectRatio: false }}

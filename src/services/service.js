@@ -32,3 +32,14 @@ export function getStateDistData(callback) {
       return callback(error);
     });
 }
+
+export function getTravelHistroy(callback) {
+  axios
+    .get("https://api.covid19india.org/travel_history.json")
+    .then((data) => {
+      return callback(null, data);
+    })
+    .catch((error) => {
+      return callback(error);
+    });
+}

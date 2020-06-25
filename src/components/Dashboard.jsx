@@ -5,6 +5,7 @@ import TimeSeries from "./TimeSeries";
 import Statewise from "./Statewise";
 import Tested from "./Tested";
 import SpreadTrend from "./SpreadTrend";
+import TravelHistory from "./TravelHistory";
 import "./Dashboard.scss";
 import { Button } from "@material-ui/core";
 const service = require("../services/service");
@@ -91,7 +92,7 @@ export class Dashboard extends Component {
             tested={this.state.totalTested}
             recovered={this.state.totalRecovered}
           />
-          <SpreadTrend showGraph={this.state.showGraph} />
+          <SpreadTrend />
           <div>
             <Button variant="contained" onClick={() => this.clicked(1)}>
               All
@@ -102,6 +103,9 @@ export class Dashboard extends Component {
             <Button variant="contained" onClick={() => this.clicked(3)}>
               2 Weeks
             </Button>
+          </div>
+          <div className="series_travel">
+            <TravelHistory showGraph={this.state.showGraph} />
           </div>
           <div className="series">
             <TimeSeries

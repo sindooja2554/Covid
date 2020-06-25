@@ -7,6 +7,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  padding-bottom: 20px;
 }
 
 .expansion_panel {
@@ -33,4 +34,40 @@
 .bar {
   width: 450px;
   height: 250px;
+}
+
+.bar_active {
+  width: 450px;
+  height: 250px;
+  background-color: #eff7ff;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.bar_confirmed {
+  width: 450px;
+  height: 250px;
+  background-color: #ffe0e6;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.bar_recovered {
+  width: 450px;
+  height: 250px;
+  background-color: #ccfdd7;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.bar_deceased {
+  width: 450px;
+  height: 250px;
+  background-color: #f6f6f7;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.travel {
+  height: inherit;
 }
